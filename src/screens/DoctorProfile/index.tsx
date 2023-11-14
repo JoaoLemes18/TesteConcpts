@@ -1,10 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function App() {
+export default function DoctorProfile() {
   return (
     <View style={styles.container}>
-      <Text>Notifications</Text>
+      <Text>DoctorProfile</Text>
       <StatusBar style="auto" />
     </View>
   );
