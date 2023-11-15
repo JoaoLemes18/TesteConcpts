@@ -4,4 +4,5 @@ export const colors = {
   mutedColor: "#b9b9e3",
   accentColor: "#9292e4",
   whiteColor: "#fff",
+  subtextColor: "#676767",
 };
