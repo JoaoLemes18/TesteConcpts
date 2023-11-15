@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import { colors } from "../../colors";
+import { useFonts, Poppins_400Regular } from "@expo-google-fonts/poppins";
+
 interface CustomCardProps {
   name: string;
   age: number;
@@ -20,16 +22,25 @@ const CustomCard: React.FC<CustomCardProps> = ({
   schedule,
 }) => {
   const [isChecked, setChecked] = useState(false);
-
+  const [fonteLoaded] = useFonts({
+    Poppins_400Regular,
+  });
+  if (!fonteLoaded) {
+    return null;
+  }
   return (
     <View style={styles.container}>
+      <Text style={styles.scheduleText}>
+        {schedule.startTime} - {schedule.endTime}
+      </Text>
+
       <View style={styles.card}>
         <Image source={image} style={styles.patientImage} />
 
         <View style={styles.cardContent}>
           <View>
             <Text style={styles.nameText}>{name} </Text>
-            <Text style={styles.ageText}> {age}y</Text>
+            <Text style={styles.ageText}> {age}y </Text>
           </View>
           <Text style={styles.healthIssueText}>{healthIssue}</Text>
         </View>
@@ -46,13 +57,14 @@ const CustomCard: React.FC<CustomCardProps> = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     marginBottom: 10,
   },
   card: {
     width: 325,
-    height: 145,
+    height: 105,
     borderRadius: 18,
-    backgroundColor: colors.secondaryColor,
+    backgroundColor: colors.themeColor,
     overflow: "hidden",
     position: "relative",
   },
@@ -69,8 +81,7 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     borderRadius: 5,
-    borderWidth: 1,
-    borderColor: colors.whiteColor,
+    backgroundColor: "#383434",
   },
   checked: {
     backgroundColor: colors.checkboxColor,
@@ -82,32 +93,35 @@ const styles = StyleSheet.create({
   },
   nameText: {
     left: 75,
-    bottom: 68,
+    bottom: 60,
+    fontFamily: "Poppins_400Regular",
     color: colors.whiteColor,
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: "700",
   },
   ageText: {
     color: colors.subtextColor,
-    bottom: 65,
+    bottom: 58,
+    fontFamily: "Poppins_400Regular",
+
     fontSize: 16,
     left: 75,
     fontWeight: "normal",
   },
   healthIssueText: {
     color: colors.subtextColor,
-    bottom: 87,
+    bottom: 83,
     fontSize: 16,
-    left: 108,
+    left: 120,
+    fontFamily: "Poppins_400Regular",
     fontStyle: "italic",
   },
-  scheduleContainer: {
-    marginBottom: 120,
-  },
+
   scheduleText: {
-    color: colors.subtextColor,
+    color: colors.whiteColor,
     fontSize: 14,
-    bottom: 50,
+    marginRight: 10,
+    marginBottom: 5,
   },
 });
 

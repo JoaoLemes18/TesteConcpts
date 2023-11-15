@@ -19,7 +19,7 @@ export const patientList = [
     name: "John Doe",
     age: 25,
     image: userMen,
-    healthIssue: "Cardiovascular Issues",
+    healthIssue: "Allergy",
     schedule: {
       startTime: "08:30",
       endTime: "08:55",
@@ -32,10 +32,10 @@ export const patientList = [
     name: "Jane Smith",
     age: 29,
     image: userWoman,
-    healthIssue: "Respiratory Problems",
+    healthIssue: "Stroke",
     schedule: {
-      startTime: "08:50",
-      endTime: "09:05",
+      startTime: "09:30",
+      endTime: "09:55",
     },
     bloodPressure: "110/70",
     sleepTime: "6.5 hours",

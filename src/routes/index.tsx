@@ -22,7 +22,7 @@ export function TabRoutes() {
 
           tabBarStyle: {
             borderTopWidth: 0,
-            backgroundColor: colors.secondaryColor,
+            backgroundColor: "black",
           },
         }}
       >
