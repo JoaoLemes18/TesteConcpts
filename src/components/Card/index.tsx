@@ -1,86 +1,115 @@
 import React, { useState } from "react";
-import {
-  FlatList,
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
+import { colors } from "../../colors";
 
-interface Day {
-  id: string;
+interface CustomCardProps {
   name: string;
-}
-
-const daysOfWeek: Day[] = [
-  { id: "1", name: "Sunday" },
-  { id: "2", name: "Monday" },
-  { id: "3", name: "Tuesday" },
-  { id: "4", name: "Wednesday" },
-  { id: "5", name: "Thursday" },
-  { id: "6", name: "Friday" },
-  { id: "7", name: "Saturday" },
-];
-
-interface DayCardProps {
-  day: Day;
-  onPress: (id: string) => void;
-  isSelected: boolean;
-}
-
-const DayCard: React.FC<DayCardProps> = ({ day, onPress, isSelected }) => (
-  <TouchableOpacity onPress={() => onPress(day.id)}>
-    <View
-      style={[
-        styles.dayContainer,
-        { backgroundColor: isSelected ? "#9292e4" : "transparent" },
-      ]}
-    >
-      <Text style={styles.dayNumber}>{day.id}</Text>
-      <Text style={styles.dayName}>{day.name}</Text>
-    </View>
-  </TouchableOpacity>
-);
-
-const FlatListDays: React.FC = () => {
-  const [selectedNumber, setSelectedNumber] = useState<string | null>(null);
-
-  const handleDayPress = (id: string) => {
-    setSelectedNumber(id);
+  age: number;
+  healthIssue: string;
+  imageUrl: string;
+  schedule: {
+    startTime: string;
+    endTime: string;
   };
+}
+
+const CustomCard: React.FC<CustomCardProps> = ({
+  name,
+  age,
+  healthIssue,
+  imageUrl,
+  schedule,
+}) => {
+  const [isChecked, setChecked] = useState(false);
 
   return (
-    <FlatList
-      data={daysOfWeek}
-      keyExtractor={(item) => item.id}
-      renderItem={({ item }) => (
-        <DayCard
-          day={item}
-          onPress={handleDayPress}
-          isSelected={selectedNumber === item.id}
-        />
-      )}
-      horizontal={true}
-    />
+    <View style={styles.container}>
+      <View style={styles.card}>
+        <Image source={{ uri: imageUrl }} style={styles.patientImage} />
+
+        <View style={styles.cardContent}>
+          <View>
+            <Text style={styles.nameText}>{name} </Text>
+            <Text style={styles.ageText}> {age}y</Text>
+          </View>
+          <Text style={styles.healthIssueText}>{healthIssue}</Text>
+        </View>
+
+        <TouchableOpacity
+          style={[styles.checkbox, isChecked && styles.checked]}
+          onPress={() => setChecked(!isChecked)}
+        ></TouchableOpacity>
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  dayContainer: {
-    padding: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-    borderRadius: 10,
-    margin: 5,
+  container: {
+    flex: 1,
+    marginBottom: 10,
   },
-  dayNumber: {
+  card: {
+    width: 325,
+    height: 155,
+    borderRadius: 18,
+    backgroundColor: colors.secondaryColor,
+    overflow: "hidden",
+    position: "relative",
+  },
+  patientImage: {
+    width: "100%",
+    height: 80,
+    borderTopLeftRadius: 18,
+    borderTopRightRadius: 18,
+  },
+  checkbox: {
+    position: "absolute",
+    top: 18,
+    right: 24,
+    width: 24,
+    height: 24,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: colors.whiteColor,
+  },
+  checked: {
+    backgroundColor: colors.checkboxColor,
+  },
+  cardContent: {
+    flex: 1,
+    justifyContent: "space-between",
+    padding: 10,
+  },
+  nameText: {
+    left: 75,
+    bottom: 75,
+    color: colors.whiteColor,
     fontSize: 18,
     fontWeight: "bold",
   },
-  dayName: {
+  ageText: {
+    color: colors.subtextColor,
+    bottom: 68,
+    fontSize: 16,
+    left: 75,
+    fontWeight: "normal",
+  },
+  healthIssueText: {
+    color: colors.subtextColor,
+    bottom: 89,
+    fontSize: 16,
+    left: 108,
+    fontStyle: "italic",
+  },
+  scheduleContainer: {
+    marginBottom: 120,
+  },
+  scheduleText: {
+    color: colors.subtextColor,
     fontSize: 14,
+    bottom: 50,
   },
 });
 
-export default DayCard;
+export default CustomCard;
