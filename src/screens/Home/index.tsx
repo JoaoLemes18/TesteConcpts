@@ -7,7 +7,7 @@ import CustomCard from "../../components/Card";
 
 export default function Home() {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.profileContainer}>
         <View style={styles.profileCircle}></View>
       </View>
@@ -21,7 +21,7 @@ export default function Home() {
         />
       </View>
       <StatusBar style="auto" />
-    </View>
+    </ScrollView>
   );
 }
 

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import { colors } from "../../colors";
-
 interface CustomCardProps {
   name: string;
   age: number;
   healthIssue: string;
-  imageUrl: string;
+  image: string;
   schedule: {
     startTime: string;
     endTime: string;
@@ -17,7 +16,7 @@ const CustomCard: React.FC<CustomCardProps> = ({
   name,
   age,
   healthIssue,
-  imageUrl,
+  image,
   schedule,
 }) => {
   const [isChecked, setChecked] = useState(false);
@@ -25,7 +24,7 @@ const CustomCard: React.FC<CustomCardProps> = ({
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <Image source={{ uri: imageUrl }} style={styles.patientImage} />
+        <Image source={image} style={styles.patientImage} />
 
         <View style={styles.cardContent}>
           <View>
@@ -51,17 +50,17 @@ const styles = StyleSheet.create({
   },
   card: {
     width: 325,
-    height: 155,
+    height: 145,
     borderRadius: 18,
     backgroundColor: colors.secondaryColor,
     overflow: "hidden",
     position: "relative",
   },
   patientImage: {
-    width: "100%",
-    height: 80,
-    borderTopLeftRadius: 18,
-    borderTopRightRadius: 18,
+    width: 60,
+    height: 60,
+    top: 10,
+    left: 5,
   },
   checkbox: {
     position: "absolute",
@@ -83,21 +82,21 @@ const styles = StyleSheet.create({
   },
   nameText: {
     left: 75,
-    bottom: 75,
+    bottom: 68,
     color: colors.whiteColor,
     fontSize: 18,
     fontWeight: "bold",
   },
   ageText: {
     color: colors.subtextColor,
-    bottom: 68,
+    bottom: 65,
     fontSize: 16,
     left: 75,
     fontWeight: "normal",
   },
   healthIssueText: {
     color: colors.subtextColor,
-    bottom: 89,
+    bottom: 87,
     fontSize: 16,
     left: 108,
     fontStyle: "italic",

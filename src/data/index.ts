@@ -1,9 +1,24 @@
-const patientList = [
+import { ImageProps } from "react-native";
+export interface patientList {
+  name: string;
+  age: number;
+  healthIssue: string;
+  image: ImageProps["source"];
+  schedule: {
+    startTime: string;
+    endTime: string;
+  };
+}
+
+const userWoman = require("../../assets/userWoman.png");
+const userMen = require("../../assets/userMen.png");
+
+export const patientList = [
   {
     id: "1",
     name: "John Doe",
     age: 25,
-    imageUrl: "URL_IMAGE_1",
+    image: userMen,
     healthIssue: "Cardiovascular Issues",
     schedule: {
       startTime: "08:30",
@@ -16,7 +31,7 @@ const patientList = [
     id: "2",
     name: "Jane Smith",
     age: 29,
-    imageUrl: "URL_IMAGE_2",
+    image: userWoman,
     healthIssue: "Respiratory Problems",
     schedule: {
       startTime: "08:50",
@@ -29,7 +44,7 @@ const patientList = [
     id: "3",
     name: "Robert Johnson",
     age: 20,
-    imageUrl: "URL_IMAGE_3",
+    image: userMen,
     healthIssue: "Diabetes",
     schedule: {
       startTime: "10:30",
@@ -42,7 +57,7 @@ const patientList = [
     id: "4",
     name: "Emily Davis",
     age: 91,
-    imageUrl: "URL_IMAGE_4",
+    image: userWoman,
     healthIssue: "Orthopedic Concerns",
     schedule: {
       startTime: "11:30",
@@ -55,7 +70,7 @@ const patientList = [
     id: "5",
     name: "Daniel Brown",
     age: 54,
-    imageUrl: "URL_IMAGE_5",
+    image: userMen,
     healthIssue: "Mental Health",
     schedule: {
       startTime: "13:10",
@@ -68,7 +83,7 @@ const patientList = [
     id: "6",
     name: "Sophia Wilson",
     age: 15,
-    imageUrl: "URL_IMAGE_6",
+    image: userWoman,
     healthIssue: "Pediatric Care",
     schedule: {
       startTime: "13:30",
@@ -81,7 +96,7 @@ const patientList = [
     id: "7",
     name: "Olivia Garcia",
     age: 18,
-    imageUrl: "URL_IMAGE_7",
+    image: userWoman,
     healthIssue: "Dermatology",
     schedule: {
       startTime: "13:50",
@@ -94,7 +109,7 @@ const patientList = [
     id: "8",
     name: "Ethan Taylor",
     age: 30,
-    imageUrl: "URL_IMAGE_8",
+    image: userWoman,
     healthIssue: "Allergies",
     schedule: {
       startTime: "14:10",
