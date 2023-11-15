@@ -1,11 +1,10 @@
-import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import { colors } from "../../colors";
-export default function Home() {
+
+export default function New() {
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <Text>New</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -13,10 +12,8 @@ export default function Home() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.themeColor,
-
     flex: 1,
-
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
