@@ -8,6 +8,7 @@ import Home from "../screens/Home";
 import DoctorProfile from "../screens/DoctorProfile";
 import { colors } from "../colors";
 import New from "../screens/New";
+import ButtonNew from "../components/ButtonNew";
 
 const Tab = createBottomTabNavigator();
 
@@ -38,15 +39,6 @@ export function TabRoutes() {
           }}
         />
         <Tab.Screen
-          name="New"
-          component={New}
-          options={{
-            tabBarLabel: "",
-
-            headerShown: false,
-          }}
-        />
-        <Tab.Screen
           name="DoctorProfile"
           component={DoctorProfile}
           options={{
@@ -59,6 +51,16 @@ export function TabRoutes() {
                 size={22}
                 color={color}
               />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="New"
+          component={New}
+          options={{
+            tabBarLabel: "",
+            tabBarIcon: ({ focused, size, color }) => (
+              <ButtonNew size={size} color={color} focused={focused} />
             ),
           }}
         />

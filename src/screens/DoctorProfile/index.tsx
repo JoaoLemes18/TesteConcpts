@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import { colors } from "../../colors";
 
 export default function DoctorProfile() {
   return (
@@ -13,7 +14,7 @@ export default function DoctorProfile() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: colors.themeColor,
     alignItems: "center",
     justifyContent: "center",
   },
