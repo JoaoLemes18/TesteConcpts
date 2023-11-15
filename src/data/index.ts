@@ -58,7 +58,7 @@ export const patientList = [
     name: "Emily Davis",
     age: 91,
     image: userWoman,
-    healthIssue: "Orthopedic Concerns",
+    healthIssue: "Hypertension ",
     schedule: {
       startTime: "11:30",
       endTime: "11:45",

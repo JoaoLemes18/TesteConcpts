@@ -114,7 +114,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     left: 120,
     fontFamily: "Poppins_400Regular",
-    fontStyle: "italic",
   },
 
   scheduleText: {
