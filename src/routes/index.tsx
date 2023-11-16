@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Entypo } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Home from "../screens/Home";
-import DoctorProfile from "../screens/DoctorProfile";
+import DoctorProfile from "../screens/Details";
 import New from "../screens/New";
 import ButtonNew from "../components/ButtonNew";
 

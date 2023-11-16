@@ -1,6 +1,13 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, ScrollView, View, Text, FlatList } from "react-native";
+import {
+  StyleSheet,
+  ScrollView,
+  View,
+  Text,
+  FlatList,
+  Image,
+} from "react-native";
 import { colors } from "../../colors";
 import pacientsList from "../../data";
 import CustomCard from "../../components/Card";
@@ -22,8 +29,11 @@ export default function Home() {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <View style={styles.profileContainer}>
-          <View style={styles.profileCircle}></View>
+        <View style={styles.profileCircle}>
+          <Image
+            source={require("../../../assets/userDr.png")} // Substitua "nome_da_imagem.png" pelo nome real da sua imagem
+            style={styles.profileImage}
+          />
         </View>
         <Text style={styles.headerText}>November, 2023</Text>
         <DataCard />
@@ -82,9 +92,15 @@ const styles = StyleSheet.create({
   },
   profileContainer: {},
   profileCircle: {
-    width: 50,
-    height: 50,
+    width: 75,
+    height: 75,
     borderRadius: 25,
-    backgroundColor: colors.whiteColor,
+    overflow: "hidden",
+  },
+  profileImage: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
+    borderRadius: 25,
   },
 });
