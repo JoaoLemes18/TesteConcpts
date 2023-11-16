@@ -1,5 +1,6 @@
 import { ImageProps } from "react-native";
 export interface patientList {
+  id: number;
   name: string;
   age: number;
   healthIssue: string;
