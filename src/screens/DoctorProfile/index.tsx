@@ -14,7 +14,7 @@ export default function DoctorProfile() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.themeColor,
+    backgroundColor: colors.secondaryColor,
     alignItems: "center",
     justifyContent: "center",
   },

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
-import { colors } from "../../colors";
+import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { useFonts, Poppins_400Regular } from "@expo-google-fonts/poppins";
+import { colors } from "../../colors";
 
 interface CustomCardProps {
+  id: string;
   name: string;
   age: number;
   healthIssue: string;
@@ -15,6 +17,7 @@ interface CustomCardProps {
 }
 
 const CustomCard: React.FC<CustomCardProps> = ({
+  id,
   name,
   age,
   healthIssue,
@@ -25,31 +28,36 @@ const CustomCard: React.FC<CustomCardProps> = ({
   const [fonteLoaded] = useFonts({
     Poppins_400Regular,
   });
+  const navigation = useNavigation();
+
   if (!fonteLoaded) {
     return null;
   }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.scheduleText}>
-        {schedule.startTime} - {schedule.endTime}
-      </Text>
+      <TouchableOpacity>
+        <Text style={styles.scheduleText}>
+          {schedule.startTime} - {schedule.endTime}
+        </Text>
 
-      <View style={styles.card}>
-        <Image source={image} style={styles.patientImage} />
+        <View style={styles.card}>
+          <Image source={image} style={styles.patientImage} />
 
-        <View style={styles.cardContent}>
-          <View>
-            <Text style={styles.nameText}>{name} </Text>
-            <Text style={styles.ageText}> {age}y </Text>
+          <View style={styles.cardContent}>
+            <View>
+              <Text style={styles.nameText}>{name} </Text>
+              <Text style={styles.ageText}> {age}y </Text>
+            </View>
+            <Text style={styles.healthIssueText}>{healthIssue}</Text>
           </View>
-          <Text style={styles.healthIssueText}>{healthIssue}</Text>
-        </View>
 
-        <TouchableOpacity
-          style={[styles.checkbox, isChecked && styles.checked]}
-          onPress={() => setChecked(!isChecked)}
-        ></TouchableOpacity>
-      </View>
+          <TouchableOpacity
+            style={[styles.checkbox, isChecked && styles.checked]}
+            onPress={() => setChecked(!isChecked)}
+          ></TouchableOpacity>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };

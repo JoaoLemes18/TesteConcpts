@@ -3,10 +3,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { Entypo } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
 import Home from "../screens/Home";
 import DoctorProfile from "../screens/DoctorProfile";
-import PacientProfile from "../screens/PacientProfile";
 import New from "../screens/New";
 import ButtonNew from "../components/ButtonNew";
 
@@ -32,7 +30,6 @@ export function TabRoutes() {
           options={{
             tabBarLabel: "",
             headerShown: false,
-
             tabBarIcon: ({ color, size }) => (
               <Entypo name="home" size={22} color={color} />
             ),
@@ -43,7 +40,6 @@ export function TabRoutes() {
           component={DoctorProfile}
           options={{
             tabBarLabel: "",
-
             headerShown: false,
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons
@@ -61,18 +57,6 @@ export function TabRoutes() {
             tabBarLabel: "",
             tabBarIcon: ({ focused, size, color }) => (
               <ButtonNew size={size} color={color} focused={focused} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="PacientProfile"
-          component={PacientProfile}
-          options={{
-            tabBarLabel: "",
-
-            headerShown: false,
-            tabBarIcon: ({ color, size }) => (
-              <AntDesign name="solution1" size={22} color={color} />
             ),
           }}
         />
