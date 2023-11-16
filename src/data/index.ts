@@ -9,6 +9,8 @@ export interface patientList {
     startTime: string;
     endTime: string;
   };
+  bloodPressure: string;
+  sleepTime: string;
 }
 
 const userWoman = require("../../assets/userWoman.png");
